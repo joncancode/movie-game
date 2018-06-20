@@ -22,9 +22,10 @@ class Card extends Component {
     })
     .then(function(myJson) {
       console.log(myJson);
+      return myJson.cast[0].name
     })
-    .then(myJson => this.setState({
-    movie: [],
+    .then(json => this.setState({
+    movie: json,
     actor: []
   }))
   .then(console.log('state', this.state))
