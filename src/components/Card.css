@@ -1,0 +1,9 @@
+.Card {
+    background-color: #d3dded;
+    border: 1px solid black;
+    border-radius: 2%;
+    flex: 1;
+    width: 30%;
+    margin: 50px 10px 0px 10px;
+}
+
