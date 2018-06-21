@@ -16,16 +16,18 @@ class Card extends Component {
   }
 
   fetchData(){
-    fetch('https://api.themoviedb.org/3/movie/550/credits?api_key=2f78d62edc3192cd3de816e74140dc09')
+    fetch('https://api.themoviedb.org/3/movie/550?api_key=2f78d62edc3192cd3de816e74140dc09')
     .then(function(response) {
       return response.json();
     })
-    .then(function(myJson) {
-      console.log(myJson);
-      return myJson.cast[0].name
+    .then(function(data) {
+      console.log(data);
+      return data
     })
-    .then(json => this.setState({
-    movie: json,
+    .then(data => this.setState({
+    count: 1,
+    movie: data.title,
+    movie_overview: data.overview,
     actor: []
   }))
   .then(console.log('state', this.state))
@@ -33,14 +35,11 @@ class Card extends Component {
   }
 
   render() {
-    const {movie, actor} = this.state
+    const {movie, actor, movie_overview} = this.state
     return (
       <div className="Card">
           <h2>{movie}</h2>
-          <h1 className="Card-title">card title</h1>
-            <img src="https://m.media-amazon.com/images/M/MV5BYjQ5NjM0Y2YtNjZkNC00ZDhkLWJjMWItN2QyNzFkMDE3ZjAxXkEyXkFqcGdeQXVyODIxMzk5NjA@._V1_UY268_CR3,0,182,268_AL_.jpg" 
-            alt="img" />
-            <div className="Card-desc">description</div>
+            <div className="Card-desc">{movie_overview}</div>
             
       </div>
     );
