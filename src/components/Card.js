@@ -15,6 +15,8 @@ class Card extends Component {
 
   componentDidMount(){
     this.fetchData();
+    console.log('state', this.state)
+    console.log('prop', this.props)
   }
 
   fetchData(){
@@ -37,7 +39,7 @@ class Card extends Component {
   }
 
   render() {
-    const {movie, actor, movie_overview} = this.state
+    const {movie, movie_overview} = this.state
     return (
       <div className="Card">
           <h2>{movie}</h2>

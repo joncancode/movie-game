@@ -17,13 +17,11 @@ const store = createStore(reducer);
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
       <div className="App">
       <NavBar title="The Movie Game" />
       <AnswerInput />
       <Card />
       </div>
-      </Provider>
     );
   }
 }
